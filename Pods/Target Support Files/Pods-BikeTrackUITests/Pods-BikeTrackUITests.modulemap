@@ -1,6 +1,0 @@
-framework module Pods_BikeTrackUITests {
-  umbrella header "Pods-BikeTrackUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
