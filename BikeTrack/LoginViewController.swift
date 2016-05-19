@@ -25,12 +25,32 @@ class LoginViewController: UIViewController {
     
     let minimalCharCount = 5
     
+    var provider: RxMoyaProvider<API>!
     let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupVerification()
+        setupConnexion()
+        
+        
+    }
+    
+    func setupConnexion() {
+        provider = RxMoyaProvider<API>()
+        
+        loginButton.rx_tap
+            .subscribeNext{[weak self] in self?.showToken(_)}
+            .addDisposableTo(disposeBag)
+    }
+
+    func showToken(token: String) {
+        print("token = \(token)")
+    }
+    
+    func setupVerification() {
         loginLabel.text = "Login must be at leat \(minimalCharCount) characters"
         passwordLabel.text = "Password must be at leat \(minimalCharCount) characters"
         
@@ -42,8 +62,8 @@ class LoginViewController: UIViewController {
             .map{$0.characters.count >= self.minimalCharCount}
             .shareReplay(1)
         
-        let everythingValid = Observable.combineLatest(loginVerification, passwordVerification) { $0 && $1 }
-            .shareReplay(1)
+        //        let everythingValid = Observable.combineLatest(loginVerification, passwordVerification) { $0 && $1 }
+        //            .shareReplay(1)
         
         loginVerification
             .bindTo(passwordTextField.rx_enabled)
@@ -56,8 +76,7 @@ class LoginViewController: UIViewController {
         passwordVerification
             .bindTo(passwordLabel.rx_hidden)
             .addDisposableTo(disposeBag)
-        
     }
-
+    
 }
 
