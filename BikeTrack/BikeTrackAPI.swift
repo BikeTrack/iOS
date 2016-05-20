@@ -9,6 +9,9 @@
 import Foundation
 import Moya
 
+
+let BikeTrackProvider = RxMoyaProvider(endpointClosure: endpointClosure)
+
 enum BikeTrack {
     case Login(username:String, password:String)
     case SignUp(username:String, password:String)
@@ -68,6 +71,12 @@ extension BikeTrack: TargetType {
         }
     }
     
+}
+
+var endpointClosure = { (target: BikeTrack) -> Endpoint<BikeTrack> in
+    let url = target.baseURL.URLByAppendingPathComponent(target.path).absoluteString
+    var endpoint = Endpoint<BikeTrack>(URL: url, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+    return endpoint
 }
 
 private extension String {

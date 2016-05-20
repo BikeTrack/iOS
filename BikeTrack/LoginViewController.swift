@@ -23,58 +23,63 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     
-    let minimalCharCount = 5
-    
-    var provider: RxMoyaProvider<BikeTrack>!
-    let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
-
+    private let viewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupVerification()
-        setupConnexion()
-        
-        
-    }
-    
-    func setupConnexion() {
-        provider = RxMoyaProvider<BikeTrack>()
+        loginLabel.text = "Login must be at leat \(viewModel.minCharacterCount) characters"
+        passwordLabel.text = "Password must be at leat \(viewModel.minCharacterCount) characters"
         
         loginButton.rx_tap
-            .subscribeNext{[weak self] in self?.showToken(_)}
-            .addDisposableTo(disposeBag)
-    }
-
-    func showToken(token: String) {
-        print("token = \(token)")
-    }
-    
-    func setupVerification() {
-        loginLabel.text = "Login must be at leat \(minimalCharCount) characters"
-        passwordLabel.text = "Password must be at leat \(minimalCharCount) characters"
-        
-        let loginVerification = loginTextField.rx_text
-            .map{$0.characters.count >= self.minimalCharCount}
-            .shareReplay(1)
-        
-        let passwordVerification = passwordTextField.rx_text
-            .map{$0.characters.count >= self.minimalCharCount}
-            .shareReplay(1)
-        
-        //        let everythingValid = Observable.combineLatest(loginVerification, passwordVerification) { $0 && $1 }
-        //            .shareReplay(1)
-        
-        loginVerification
-            .bindTo(passwordTextField.rx_enabled)
+            .bindTo(viewModel.loginTaps)
             .addDisposableTo(disposeBag)
         
-        loginVerification
+        signupButton.rx_tap
+            .bindTo(viewModel.signupTaps)
+            .addDisposableTo(disposeBag)
+        
+        loginTextField.rx_text
+            .bindTo(viewModel.loginText)
+            .addDisposableTo(disposeBag)
+        
+        passwordTextField.rx_text
+            .bindTo(viewModel.passwordText)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.loginValidTrigger
             .bindTo(loginLabel.rx_hidden)
             .addDisposableTo(disposeBag)
         
-        passwordVerification
+        viewModel.passwordValidTrigger
             .bindTo(passwordLabel.rx_hidden)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.loginEnabledTrigger.asObservable()
+            .bindTo(loginButton.rx_enabled)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.loginEnabledTrigger.asObservable()
+            .bindTo(signupButton.rx_enabled)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.loginFinished
+            .driveNext { [weak self] in
+                let alert = UIAlertController(title: "Logged In", message: nil, preferredStyle: .Alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: .None)
+                alert.addAction(cancelAction)
+                self?.presentViewController(alert, animated: true, completion: .None)
+            }
+            .addDisposableTo(disposeBag)
+        
+        viewModel.signupFinished
+            .driveNext { [weak self] in
+                let alert = UIAlertController(title: "Signed Up", message: nil, preferredStyle: .Alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: .None)
+                alert.addAction(cancelAction)
+                self?.presentViewController(alert, animated: true, completion: .None)
+            }
             .addDisposableTo(disposeBag)
     }
     

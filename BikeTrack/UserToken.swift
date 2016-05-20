@@ -9,11 +9,9 @@
 import Mapper
 
 struct UserToken: Mappable {
-    let code: Int
     let token: String
     
     init(map: Mapper) throws {
-        try code = map.from("code")
         try token = map.from("token")
     }
     

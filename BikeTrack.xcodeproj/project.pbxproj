@@ -21,6 +21,7 @@
 		F5D230D11CEDC32C000055E8 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D230D01CEDC32C000055E8 /* UserToken.swift */; };
 		F5D230D31CEDC42E000055E8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D230D21CEDC42E000055E8 /* Login.swift */; };
 		F5D230D51CEDC475000055E8 /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D230D41CEDC475000055E8 /* Bike.swift */; };
+		F5D230D71CEF5020000055E8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D230D61CEF5020000055E8 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		F5D230D01CEDC32C000055E8 /* UserToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
 		F5D230D21CEDC42E000055E8 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F5D230D41CEDC475000055E8 /* Bike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		F5D230D61CEF5020000055E8 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F871C067B155846D7080D78A /* Pods-BikeTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-BikeTrack/Pods-BikeTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,10 +147,9 @@
 		F51CEC581CE7C6E40015A20C /* BikeTrack */ = {
 			isa = PBXGroup;
 			children = (
-				F5D230CC1CEC99C9000055E8 /* ModelView */,
-				F5D230CB1CEC99C1000055E8 /* View */,
 				F5D230CA1CEC99B7000055E8 /* Model */,
-				F51CEC591CE7C6E40015A20C /* AppDelegate.swift */,
+				F5D230CC1CEC99C9000055E8 /* ViewModel */,
+				F5D230CB1CEC99C1000055E8 /* View */,
 				F51CEC5D1CE7C6E40015A20C /* Main.storyboard */,
 				F51CEC601CE7C6E40015A20C /* Assets.xcassets */,
 				F51CEC621CE7C6E40015A20C /* LaunchScreen.storyboard */,
@@ -178,6 +179,7 @@
 		F5D230CA1CEC99B7000055E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F51CEC591CE7C6E40015A20C /* AppDelegate.swift */,
 				F5D230CD1CECA98A000055E8 /* BikeTrackAPI.swift */,
 				F5D230D01CEDC32C000055E8 /* UserToken.swift */,
 				F5D230D21CEDC42E000055E8 /* Login.swift */,
@@ -194,11 +196,12 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		F5D230CC1CEC99C9000055E8 /* ModelView */ = {
+		F5D230CC1CEC99C9000055E8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F5D230D61CEF5020000055E8 /* LoginViewModel.swift */,
 			);
-			name = ModelView;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +472,7 @@
 				F51CEC5C1CE7C6E40015A20C /* LoginViewController.swift in Sources */,
 				F5D230CE1CECA98A000055E8 /* BikeTrackAPI.swift in Sources */,
 				F51CEC5A1CE7C6E40015A20C /* AppDelegate.swift in Sources */,
+				F5D230D71CEF5020000055E8 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
