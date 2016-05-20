@@ -5,7 +5,7 @@
 //  Created by Gil Felot on 19/05/16.
 //  Copyright © 2016 Gil Felot. All rights reserved.
 //
-
+import  Foundation
 import Mapper
 
 struct Bike: Mappable {
@@ -19,6 +19,7 @@ struct Bike: Mappable {
         try name = map.from("name")
         try long = map.from("long")
         try lat = map.from("lat")
+
     }
     
 }

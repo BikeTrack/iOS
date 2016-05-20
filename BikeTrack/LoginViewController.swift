@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     
     let minimalCharCount = 5
     
-    var provider: RxMoyaProvider<API>!
+    var provider: RxMoyaProvider<BikeTrack>!
     let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
 
     
@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     }
     
     func setupConnexion() {
-        provider = RxMoyaProvider<API>()
+        provider = RxMoyaProvider<BikeTrack>()
         
         loginButton.rx_tap
             .subscribeNext{[weak self] in self?.showToken(_)}

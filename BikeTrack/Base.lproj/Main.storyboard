@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="305" y="387"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="osX-Oh-vn5">
             <objects>
                 <viewController id="UO5-c4-c5F" sceneMemberID="viewController">
@@ -123,13 +123,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="uGT-RI-abS"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="uGT-RI-abS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cG-m7-vPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1923" y="717"/>
         </scene>
-        <!--Item 1-->
+        <!--Bike List-->
         <scene sceneID="oCZ-py-VzG">
             <objects>
                 <viewController id="vBC-jX-nrB" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Nts-g4-4kU"/>
+                    <tabBarItem key="tabBarItem" title="Bike List" id="Nts-g4-4kU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QuQ-OZ-9tW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
