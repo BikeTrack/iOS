@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="BikeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="BikeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -103,7 +103,6 @@
                         <outlet property="passwordLabel" destination="Z9c-Jz-oUJ" id="nqq-x1-0Ht"/>
                         <outlet property="passwordTextField" destination="VhO-Mw-z8L" id="dpP-fk-zmT"/>
                         <outlet property="signupButton" destination="ggg-uF-A6V" id="wxi-mf-zcG"/>
-                        <segue destination="4uc-tX-I3e" kind="show" identifier="login" id="ddA-mU-OTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,7 +112,7 @@
         <!--View Controller-->
         <scene sceneID="osX-Oh-vn5">
             <objects>
-                <viewController id="UO5-c4-c5F" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherList" id="UO5-c4-c5F" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nRk-27-CBn"/>
                         <viewControllerLayoutGuide type="bottom" id="z00-FM-Gr8"/>
@@ -132,7 +131,7 @@
         <!--Bike List-->
         <scene sceneID="oCZ-py-VzG">
             <objects>
-                <viewController id="vBC-jX-nrB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BikeList" id="vBC-jX-nrB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ogl-DR-HbJ"/>
                         <viewControllerLayoutGuide type="bottom" id="IE3-vP-uvP"/>
@@ -151,7 +150,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rRu-1q-aYB">
             <objects>
-                <tabBarController id="4uc-tX-I3e" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="4uc-tX-I3e" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="k5j-Gz-Apl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
